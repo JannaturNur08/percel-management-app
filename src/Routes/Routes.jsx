@@ -10,6 +10,17 @@ import Login from "../pages/Login/Login";
 import SignUp from "../pages/Signup/Signup";
 import Dashboard from "../layout/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import BookAParcel from "../pages/Dashboard/Users/bookAParcel/bookAParcel";
+import MyParcel from "../pages/Dashboard/Users/myParcel/myParcel";
+import MyProfile from "../pages/Dashboard/Users/myProfile/myProfile";
+import AdminRoute from "./AdminRoute";
+import Statistics from "../pages/Dashboard/Admin/Statistics/Statistics";
+import AllParcel from "../pages/Dashboard/Admin/AllParcel/AllParcel";
+import AllUsers from "../pages/Dashboard/Admin/AllUsers/AllUsers";
+import AllDeliveryMen from "../pages/Dashboard/Admin/AllDeliveryMen/AllDeliveryMen";
+import DeliveryMenRoute from "./DeliveryMenRoute";
+import MyDelivery from "../pages/Dashboard/DeliveryMen/myDelivery/myDelivery";
+import MyReviews from "../pages/Dashboard/DeliveryMen/myReviews/myReviews";
 
 export const router = createBrowserRouter([
   {
@@ -47,15 +58,15 @@ export const router = createBrowserRouter([
 			// user routes
 			{
 				path: "bookAParcel",
-				element: ,
+				element: <BookAParcel></BookAParcel> ,
 			},
 			{
 				path: "myParcel",
-				element: ,
+				element: <MyParcel></MyParcel> ,
 			},
 			{
 				path: "myProfile",
-				element: ,
+				element: <MyProfile></MyProfile> ,
 			},
 		
 
@@ -63,28 +74,52 @@ export const router = createBrowserRouter([
 			{
 				path: "statistics",
 				element: (
-					
+					<AdminRoute>
+            <Statistics></Statistics>
+          </AdminRoute>
 				),
 			},
 			{
-				path: "users",
+				path: "allParcel",
 				element: (
-					
+					<AdminRoute>
+            <AllParcel></AllParcel>
+          </AdminRoute>
+				),
+			},
+			{
+				path: "allUsers",
+				element: (
+					<AdminRoute>
+           <AllUsers></AllUsers>
+          </AdminRoute>
+				),
+			},
+			{
+				path: "allDeliveryMen",
+				element: (
+					<AdminRoute>
+           <AllDeliveryMen> </AllDeliveryMen>
+          </AdminRoute>
 				),
 			},
 		
 
 			// deliverymen routes
 			{
-				path: "reviewProducts",
+				path: "myDelivery",
 				element: (
-				
+				<DeliveryMenRoute>
+          <MyDelivery></MyDelivery>
+        </DeliveryMenRoute>
 				),
 			},
 			{
-				path: "reportedProducts",
+				path: "myReviews",
 				element: (
-					
+					<DeliveryMenRoute>
+          <MyReviews></MyReviews>
+        </DeliveryMenRoute>
 				),
 			},
 		],
