@@ -1,18 +1,18 @@
 import { NavLink, Outlet } from "react-router-dom";
+import { FaHome, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
 import useAdmin from "../hooks/useAdmin";
 import useAuth from "../hooks/useAuth";
 import useDeliveryMen from "../hooks/useDeliveryMen";
 
-
 const Dashboard = () => {
-    const { user } = useAuth();
+	const { user } = useAuth();
 	//get isAdmin from the database
 	const [isAdmin] = useAdmin();
 	// const isAdmin = true;
 	const [isDeliveryMen] = useDeliveryMen();
 
-    return (
-        <div className="flex">
+	return (
+		<div className="flex">
 			{/* dashboard side bar */}
 			<div className="w-64 min-h-screen bg-primary text-white">
 				<ul className="menu p-4">
@@ -21,7 +21,13 @@ const Dashboard = () => {
 							<li>
 								<NavLink to="/dashboard/statistics">
 									<FaHome></FaHome>
-									Admin Home
+									Statistics
+								</NavLink>
+							</li>
+							<li>
+								<NavLink to="/dashboard/parcels">
+									<FaUsers></FaUsers>
+									All Parcel
 								</NavLink>
 							</li>
 							<li>
@@ -32,25 +38,24 @@ const Dashboard = () => {
 							</li>
 
 							<li>
-								<NavLink to="/dashboard/coupons">
+								<NavLink to="/dashboard/deliveryMen">
 									<RiCoupon5Line />
-									Coupons
+									All DeliveryMen
 								</NavLink>
 							</li>
 						</>
 					) : isDeliveryMen ? (
 						<>
-						
 							<li>
-								<NavLink to="/dashboard/reviewProducts">
+								<NavLink to="/dashboard/myDelivery">
 									<MdPreview />
-									Review Products
+									My Delivery
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to="/dashboard/reportedProducts">
-									<MdReport />
-									Reported Products
+								<NavLink to="/dashboard/myReviews">
+                                <MdPreview />
+									My Reviews
 								</NavLink>
 							</li>
 						</>
@@ -58,22 +63,20 @@ const Dashboard = () => {
 						<>
 							<li>
 								<NavLink to="/dashboard/bookAParcel">
-                                <FaUtensils></FaUtensils>
+									<FaUtensils></FaUtensils>
 									Book A Parcel
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to="/dashboard/addProduct">
-									
-                                    <FaShoppingCart></FaShoppingCart>
+								<NavLink to="/dashboard/myParcel">
+									<FaShoppingCart></FaShoppingCart>
 									My Parcel
 								</NavLink>
 							</li>
 
 							<li>
-								<NavLink to="/dashboard/myProducts">
-									
-                                    <CgProfile />
+								<NavLink to="/dashboard/myProfile">
+									<CgProfile />
 									My Profile
 								</NavLink>
 							</li>
@@ -94,7 +97,7 @@ const Dashboard = () => {
 				<Outlet></Outlet>
 			</div>
 		</div>
-    );
+	);
 };
 
 export default Dashboard;

@@ -46,6 +46,14 @@ export const router = createBrowserRouter([
 		children: [
 			// user routes
 			{
+				path: "bookAParcel",
+				element: ,
+			},
+			{
+				path: "myParcel",
+				element: ,
+			},
+			{
 				path: "myProfile",
 				element: ,
 			},
