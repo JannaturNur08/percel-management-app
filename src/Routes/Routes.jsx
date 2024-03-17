@@ -13,11 +13,11 @@ import AllParcel from "../pages/Dashboard/Admin/AllParcel/AllParcel";
 import AllUsers from "../pages/Dashboard/Admin/AllUsers/AllUsers";
 import AllDeliveryMen from "../pages/Dashboard/Admin/AllDeliveryMen/AllDeliveryMen";
 
-
-
 import BookParcel from "../pages/Dashboard/Users/BookAParcel/BookParcel";
 import MyPercel from "../pages/Dashboard/Users/MyParcel/MyPercel";
 import MyProfilee from "../pages/Dashboard/Users/MyProfile/MyProfilee";
+import MyDelivary from "../pages/Dashboard/DeliveryMen/MyDelivery/MyDelivary";
+import MyRevieews from "../pages/Dashboard/DeliveryMen/MyReviews/MyRevieews";
 
 export const router = createBrowserRouter([
 	{
@@ -102,7 +102,7 @@ export const router = createBrowserRouter([
 				path: "myDelivery",
 				element: (
 					<DeliveryMenRoute>
-						
+						<MyDelivary></MyDelivary>
 					</DeliveryMenRoute>
 				),
 			},
@@ -110,7 +110,7 @@ export const router = createBrowserRouter([
 				path: "myReviews",
 				element: (
 					<DeliveryMenRoute>
-						
+						<MyRevieews></MyRevieews>
 					</DeliveryMenRoute>
 				),
 			},
