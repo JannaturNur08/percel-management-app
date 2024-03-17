@@ -54,7 +54,7 @@ const Navbar = () => {
 	);
 	return (
 		<div>
-			<div className="navbar  bg-[#002B44]  sticky-header text-white ">
+			<div className="navbar  bg-[#002B44]   text-white ">
 				<div className="navbar-start">
 					<div className="dropdown">
 						<label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -79,10 +79,14 @@ const Navbar = () => {
 						</ul>
 					</div>
 					<div className="lg:flex items-center hidden relative">
-						<img src="https://i.ibb.co/54bvJxy/logo.png" alt="" className="w-20 h-20"/>
-					<a className="btn btn-ghost  text-xl lg:text-3xl absolute ml-12  mt-2">
-						atraTech
-					</a>
+						<img
+							src="https://i.ibb.co/54bvJxy/logo.png"
+							alt=""
+							className="w-20 h-20"
+						/>
+						<a className="btn btn-ghost  text-xl lg:text-3xl absolute ml-12  mt-2">
+							atraTech
+						</a>
 					</div>
 				</div>
 				<div className="navbar-center hidden lg:flex">
@@ -91,12 +95,16 @@ const Navbar = () => {
 					</ul>
 				</div>
 				<div className="lg:hidden items-center  relative">
-						<img src="https://i.ibb.co/54bvJxy/logo.png" alt="" className="w-20 mr-20 h-20"/>
+					<img
+						src="https://i.ibb.co/54bvJxy/logo.png"
+						alt=""
+						className="w-20 mr-20 h-20"
+					/>
 					<a className="btn btn-ghost  text-xl lg:text-3xl absolute ml-12  mt-2">
 						atraTech
 					</a>
-					</div>
-				
+				</div>
+
 				<div className="navbar-end">
 					{user?.email ? (
 						<>
