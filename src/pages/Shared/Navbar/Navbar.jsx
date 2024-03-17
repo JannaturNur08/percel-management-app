@@ -149,7 +149,7 @@ const Navbar = () => {
 										{user && isDeliveryMen && (
 											<li>
 												<Link
-													to="/dashboard/reviewProducts"
+													to="/dashboard/myDelivery"
 													className="justify-between">
 													Dashboard
 												</Link>
@@ -158,7 +158,7 @@ const Navbar = () => {
 										{user && !isAdmin && !isDeliveryMen && (
 											<li>
 												<Link
-													to="/dashboard/myProfile"
+													to="/dashboard/bookAParcel"
 													className="justify-between">
 													Dashboard
 												</Link>

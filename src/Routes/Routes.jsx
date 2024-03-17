@@ -1,8 +1,4 @@
-
-import {
-    createBrowserRouter,
-   
-  } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Home from "../pages/Home/Home/Home";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
@@ -10,20 +6,21 @@ import Login from "../pages/Login/Login";
 import SignUp from "../pages/Signup/Signup";
 import Dashboard from "../layout/Dashboard";
 import PrivateRoute from "./PrivateRoute";
-import BookAParcel from "../pages/Dashboard/Users/bookAParcel/bookAParcel";
-import MyParcel from "../pages/Dashboard/Users/myParcel/myParcel";
-import MyProfile from "../pages/Dashboard/Users/myProfile/myProfile";
+import DeliveryMenRoute from "./DeliveryMenRoute";
 import AdminRoute from "./AdminRoute";
 import Statistics from "../pages/Dashboard/Admin/Statistics/Statistics";
 import AllParcel from "../pages/Dashboard/Admin/AllParcel/AllParcel";
 import AllUsers from "../pages/Dashboard/Admin/AllUsers/AllUsers";
 import AllDeliveryMen from "../pages/Dashboard/Admin/AllDeliveryMen/AllDeliveryMen";
-import DeliveryMenRoute from "./DeliveryMenRoute";
-import MyDelivery from "../pages/Dashboard/DeliveryMen/myDelivery/myDelivery";
-import MyReviews from "../pages/Dashboard/DeliveryMen/myReviews/myReviews";
+
+
+
+import BookParcel from "../pages/Dashboard/Users/BookAParcel/BookParcel";
+import MyPercel from "../pages/Dashboard/Users/MyParcel/MyPercel";
+import MyProfilee from "../pages/Dashboard/Users/MyProfile/MyProfilee";
 
 export const router = createBrowserRouter([
-  {
+	{
 		path: "/",
 		element: <Main></Main>,
 		errorElement: <ErrorPage></ErrorPage>,
@@ -40,17 +37,14 @@ export const router = createBrowserRouter([
 				path: "signup",
 				element: <SignUp></SignUp>,
 			},
-
-		
-		
 		],
 	},
 
-  {
+	{
 		path: "dashboard",
 		element: (
 			<PrivateRoute>
-			<Dashboard></Dashboard>
+				<Dashboard></Dashboard>
 			</PrivateRoute>
 		),
 		errorElement: <ErrorPage></ErrorPage>,
@@ -58,70 +52,68 @@ export const router = createBrowserRouter([
 			// user routes
 			{
 				path: "bookAParcel",
-				element: <BookAParcel></BookAParcel> ,
+				element: <BookParcel></BookParcel>,
 			},
 			{
 				path: "myParcel",
-				element: <MyParcel></MyParcel> ,
+				element: <MyPercel></MyPercel>,
 			},
 			{
 				path: "myProfile",
-				element: <MyProfile></MyProfile> ,
+				element: <MyProfilee></MyProfilee>,
 			},
-		
 
 			// admin routes
 			{
 				path: "statistics",
 				element: (
 					<AdminRoute>
-            <Statistics></Statistics>
-          </AdminRoute>
+						<Statistics></Statistics>
+					</AdminRoute>
 				),
 			},
 			{
 				path: "allParcel",
 				element: (
 					<AdminRoute>
-            <AllParcel></AllParcel>
-          </AdminRoute>
+						<AllParcel></AllParcel>
+					</AdminRoute>
 				),
 			},
 			{
-				path: "allUsers",
+				path: "allUser",
 				element: (
 					<AdminRoute>
-           <AllUsers></AllUsers>
-          </AdminRoute>
+						<AllUsers></AllUsers>
+					</AdminRoute>
 				),
 			},
 			{
 				path: "allDeliveryMen",
 				element: (
 					<AdminRoute>
-           <AllDeliveryMen> </AllDeliveryMen>
-          </AdminRoute>
+						<AllDeliveryMen> </AllDeliveryMen>
+					</AdminRoute>
 				),
 			},
-		
 
 			// deliverymen routes
 			{
 				path: "myDelivery",
 				element: (
-				<DeliveryMenRoute>
-          <MyDelivery></MyDelivery>
-        </DeliveryMenRoute>
+					<DeliveryMenRoute>
+						
+					</DeliveryMenRoute>
 				),
 			},
 			{
 				path: "myReviews",
 				element: (
 					<DeliveryMenRoute>
-          <MyReviews></MyReviews>
-        </DeliveryMenRoute>
+						
+					</DeliveryMenRoute>
 				),
 			},
 		],
 	},
-  ]);
+]);

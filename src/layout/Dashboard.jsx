@@ -25,21 +25,21 @@ const Dashboard = () => {
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to="/dashboard/parcels">
+								<NavLink to="/dashboard/allParcel">
 									<FaUsers></FaUsers>
 									All Parcel
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to="/dashboard/users">
+								<NavLink to="/dashboard/allUser">
 									<FaUsers></FaUsers>
 									All Users
 								</NavLink>
 							</li>
 
 							<li>
-								<NavLink to="/dashboard/deliveryMen">
-									<RiCoupon5Line />
+								<NavLink to="/dashboard/allDeliveryMen">
+									
 									All DeliveryMen
 								</NavLink>
 							</li>
@@ -48,13 +48,13 @@ const Dashboard = () => {
 						<>
 							<li>
 								<NavLink to="/dashboard/myDelivery">
-									<MdPreview />
+									
 									My Delivery
 								</NavLink>
 							</li>
 							<li>
 								<NavLink to="/dashboard/myReviews">
-                                <MdPreview />
+                               
 									My Reviews
 								</NavLink>
 							</li>
@@ -76,7 +76,7 @@ const Dashboard = () => {
 
 							<li>
 								<NavLink to="/dashboard/myProfile">
-									<CgProfile />
+								
 									My Profile
 								</NavLink>
 							</li>
