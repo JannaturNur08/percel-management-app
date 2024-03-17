@@ -47,19 +47,21 @@ const SignUp = () => {
 	};
 	return (
 		<div className="lg:w-3/4 mx-auto mt-40 mb-10">
-			<h2 className="font-mercellus text-4xl">SignUp</h2>
+			<h2 className="font-mercellus text-4xl mb-4">SignUp</h2>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className="form-control">
-					<label className="label">
-						<span className="label-text">Type</span>
-					</label>
-					<select {...register("type", { required: true })}>
-						<option value="user">User</option>
-						<option value="deliveryMen">DeliveryMen</option>
+					
+					<div >
+                    <select {...register("type", { required: true })} className="p-2 border rounded-lg">
+						<option >Type</option>
+						<option value="User">User</option>
+						<option value="DeliveryMen">DeliveryMen</option>
 					</select>
-					{errors.name && (
+                    {errors.name && (
 						<span className="text-red-500">Type is required</span>
 					)}
+                    </div>
+					
 				</div>
 				<div className="form-control">
 					<label className="label">

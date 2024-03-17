@@ -25,7 +25,7 @@ const Navbar = () => {
 					className={({ isActive, isPending }) =>
 						isPending ? "pending" : isActive ? "active " : ""
 					}>
-					HOME
+					Home
 				</NavLink>
 			</li>
 			<li>
@@ -53,7 +53,7 @@ const Navbar = () => {
 						className={({ isActive, isPending }) =>
 							isPending ? "pending" : isActive ? "active " : ""
 						}>
-						LOGIN
+						Login
 					</NavLink>
 				</li>
 			) : (
