@@ -1,17 +1,19 @@
 import { Outlet } from "react-router-dom";
-import Home from "../pages/Home/Home/Home";
 
-
-
+import Navbar from "../pages/Shared/Navbar/Navbar";
 
 const Main = () => {
-    return (
-        <div>
-            <Home></Home>
-            <Outlet></Outlet>
-           
-        </div>
-    );
+	return (
+		<div className="flex flex-col min-h-screen m-0">
+			<div>
+				<Navbar></Navbar>
+			</div>
+
+			<div className="flex-1">
+				<Outlet></Outlet>
+			</div>
+		</div>
+	);
 };
 
 export default Main;
