@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 // import useAdmin from "../../../hooks/useAdmin";
 // import useModerator from "../../../hooks/useModerator";
+import { IoNotificationsOutline } from "react-icons/io5";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -29,12 +30,20 @@ const Navbar = () => {
 			</li>
 			<li>
 				<NavLink
-					to="/products"
+					to="/dashboard"
 					className={({ isActive, isPending }) =>
 						isPending ? "pending" : isActive ? "active " : ""
 					}>
-					PRODUCTS
+					Dashboard
 				</NavLink>
+			</li>
+			<li>
+				<Link to="/dashboard/cart">
+					<div className="flex">
+						<IoNotificationsOutline className="mr-2 text-2xl"></IoNotificationsOutline>
+						<div className="badge badge-secondary">+</div>
+					</div>
+				</Link>
 			</li>
 
 			{!user ? (
@@ -118,13 +127,13 @@ const Navbar = () => {
 								</label>
 								<ul
 									tabIndex={0}
-									className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-[#002B44] rounded-box w-52">
+									className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-[#002B44] rounded-box w-52 read-only">
 									<li>
 										<p className="justify-between">
 											{user.displayName}
 										</p>
 									</li>
-									<li>
+									{/* <li>
 										{" "}
 										{user && isAdmin && (
 											<li>
@@ -153,7 +162,7 @@ const Navbar = () => {
 												</Link>
 											</li>
 										)}
-									</li>
+									</li> */}
 									<li>
 										<button
 											onClick={handleLogOut}
