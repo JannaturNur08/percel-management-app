@@ -4,11 +4,13 @@ import useAuth from "../../../hooks/useAuth";
 // import useModerator from "../../../hooks/useModerator";
 import { IoNotificationsOutline } from "react-icons/io5";
 import "./Navbar.css";
+import useAdmin from "../../../hooks/useAdmin";
+import useDeliveryMen from "../../../hooks/useDeliveryMen";
 
 const Navbar = () => {
 	const { user, logOut } = useAuth();
-	// const [isAdmin] = useAdmin();
-	// const [isDeliveryMan] = useModerator();
+	 const [isAdmin] = useAdmin();
+	 const [isDeliveryMen] = useDeliveryMen();
 
 	console.log(user);
 	const handleLogOut = () => {
@@ -133,7 +135,7 @@ const Navbar = () => {
 											{user.displayName}
 										</p>
 									</li>
-									{/* <li>
+									<li>
 										{" "}
 										{user && isAdmin && (
 											<li>
@@ -144,7 +146,7 @@ const Navbar = () => {
 												</Link>
 											</li>
 										)}
-										{user && isDeliveryMan && (
+										{user && isDeliveryMen && (
 											<li>
 												<Link
 													to="/dashboard/reviewProducts"
@@ -153,7 +155,7 @@ const Navbar = () => {
 												</Link>
 											</li>
 										)}
-										{user && !isAdmin && !isDeliveryMan && (
+										{user && !isAdmin && !isDeliveryMen && (
 											<li>
 												<Link
 													to="/dashboard/myProfile"
@@ -162,7 +164,7 @@ const Navbar = () => {
 												</Link>
 											</li>
 										)}
-									</li> */}
+									</li>
 									<li>
 										<button
 											onClick={handleLogOut}
