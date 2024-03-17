@@ -25,7 +25,7 @@ const SignUp = () => {
 					const userInfo = {
 						name: data.name,
 						email: data.email,
-						role: "user",
+						role: data.type,
 					};
 					axiosPublic.post("/users", userInfo).then((res) => {
 						if (res.data.insertedId) {
@@ -53,12 +53,12 @@ const SignUp = () => {
 					<label className="label">
 						<span className="label-text">Type</span>
 					</label>
-					<select {...register("type")}>
-						<option value="user">user</option>
-						<option value="deliveryman">deliveryman</option>
+					<select {...register("type", { required: true })}>
+						<option value="user">User</option>
+						<option value="deliveryMen">DeliveryMen</option>
 					</select>
 					{errors.name && (
-						<span className="text-red-500">Name is required</span>
+						<span className="text-red-500">Type is required</span>
 					)}
 				</div>
 				<div className="form-control">
