@@ -9,7 +9,7 @@
 		"receiverPhoneNumber": "111-111-1111",
 		"deliveryAddress": "123 Main St, City",
 		"requestedDeliveryDate": "2024-03-20",
-
+		"bookingDate": "2024-03-18",
 		"deliveryAddresslatitude": 40.7128,
 		"deliveryAddresslongitude": -74.006,
 		"price": 100,
@@ -25,11 +25,10 @@
 		"receiverPhoneNumber": "222-222-2222",
 		"deliveryAddress": "456 Elm St, Town",
 		"requestedDeliveryDate": "2024-03-22",
-
+		"bookingDate": "2024-03-18",
 		"deliveryAddressLatitude": 34.0522,
 		"deliveryAddressLongitude": -118.2437,
-
-		"price": 50,
+        "price": 50,
 		"status": "pending"
 	}
 ]

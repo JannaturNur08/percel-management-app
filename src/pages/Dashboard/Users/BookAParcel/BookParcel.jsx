@@ -48,7 +48,7 @@ const BookParcel = () => {
 			receiverPhoneNumber: parseInt(data.receiverPhoneNumber),
 			deliveryAddressLatitude: parseFloat(data.deliveryAddressLatitude),
 			deliveryAddressLongitude: parseFloat(data.deliveryAddressLongitude),
-
+             bookingDate :  now,
 			price: parcelPrice,
 			status: "pending",
 		};
