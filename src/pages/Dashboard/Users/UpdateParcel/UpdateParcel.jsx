@@ -1,11 +1,27 @@
 import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import useAuth from "../../../../hooks/useAuth";
-import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
 import moment from "moment/moment";
+import useAxiosPublic from "../../../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
-const BookParcel = () => {
+const UpdateParcel = () => {
+	const {
+		_id,
+
+		phoneNumber,
+		parcelType,
+		parcelWeight,
+		receiverName,
+		receiverPhoneNumber,
+		deliveryAddress,
+		requestedDeliveryDate,
+
+		deliveryAddressLatitude,
+		deliveryAddressLongitude,
+		price,
+	} = useLoaderData();
 	const axiosPublic = useAxiosPublic();
 	const { user } = useAuth();
 	const [loading, setLoading] = useState(false);
@@ -14,7 +30,7 @@ const BookParcel = () => {
 	const {
 		register,
 		handleSubmit,
-		reset,
+reset,
 		formState: { errors },
 	} = useForm();
 	const now = moment().format("YYYY-MM-DD");
@@ -48,20 +64,20 @@ const BookParcel = () => {
 			receiverPhoneNumber: parseInt(data.receiverPhoneNumber),
 			deliveryAddressLatitude: parseFloat(data.deliveryAddressLatitude),
 			deliveryAddressLongitude: parseFloat(data.deliveryAddressLongitude),
-             bookingDate :  now,
+			bookingDate: now,
 			price: parcelPrice,
 			status: "pending",
 		};
-        console.log(parcelData);
+		console.log(parcelData);
 
 		axiosPublic
-			.post("/parcels", parcelData)
+			.patch(`/parcels/${_id}`, parcelData)
 			.then((res) => {
-				if (res.data.insertedId) {
+				if (res.data.modifiedCount > 0) {
 					Swal.fire({
 						position: "top-end",
 						icon: "success",
-						title: "Parcel booked successfully.",
+						title: "Parcel updated successfully.",
 						showConfirmButton: false,
 						timer: 1500,
 					});
@@ -83,7 +99,7 @@ const BookParcel = () => {
 
 	return (
 		<div className="lg:w-3/4 mx-auto mt-5 mb-10">
-			<h2 className="font-mercellus text-4xl mb-4">Book a Parcel</h2>
+			<h2 className="font-mercellus text-4xl mb-4">Update Parcel</h2>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<h3 className="font-mercellus text-2xl">Sender Details</h3>
 				<div className="form-control w-full my-3 space-y-2">
@@ -95,6 +111,7 @@ const BookParcel = () => {
 						</label>
 						<input
 							type="text"
+							defaultValue={phoneNumber}
 							{...register("phoneNumber", { required: true })}
 							name="phoneNumber"
 							placeholder="Phone Number"
@@ -115,6 +132,7 @@ const BookParcel = () => {
 					</label>
 					<input
 						type="text"
+						defaultValue={parcelType}
 						{...register("parcelType", { required: true })}
 						name="parcelType"
 						placeholder="Parcel Type"
@@ -132,6 +150,7 @@ const BookParcel = () => {
 					</label>
 					<input
 						type="number"
+						defaultValue={parcelWeight}
 						{...register("parcelWeight", { required: true })}
 						name="parcelWeight"
 						placeholder="Parcel Weight"
@@ -154,6 +173,7 @@ const BookParcel = () => {
 					</label>
 					<input
 						type="text"
+						defaultValue={receiverName}
 						{...register("receiverName", { required: true })}
 						name="receiverName"
 						placeholder="Receiver's Name"
@@ -173,6 +193,7 @@ const BookParcel = () => {
 					</label>
 					<input
 						type="number"
+						defaultValue={receiverPhoneNumber}
 						{...register("receiverPhoneNumber", { required: true })}
 						name="receiverPhoneNumber"
 						placeholder="Receiver's Phone Number"
@@ -196,6 +217,7 @@ const BookParcel = () => {
 					</label>
 					<input
 						type="text"
+						defaultValue={deliveryAddress}
 						{...register("deliveryAddress", { required: true })}
 						name="deliveryAddress"
 						placeholder="Parcel Delivery Address"
@@ -216,7 +238,7 @@ const BookParcel = () => {
 					<input
 						type="date"
 						min={now}
-						defaultValue={now}
+						defaultValue={requestedDeliveryDate}
 						placeholder="Requested Delivery Date"
 						{...register("requestedDeliveryDate", {
 							required: true,
@@ -238,6 +260,7 @@ const BookParcel = () => {
 					<input
 						type="number"
 						step={0.000000001}
+						defaultValue={deliveryAddressLatitude}
 						placeholder="Delivery Address Latitude"
 						{...register("deliveryAddressLatitude", {
 							required: true,
@@ -259,6 +282,7 @@ const BookParcel = () => {
 					<input
 						type="number"
 						step={0.000000001}
+						defaultValue={deliveryAddressLongitude}
 						placeholder="Delivery Address Longitude"
 						{...register("deliveryAddressLongitude", {
 							required: true,
@@ -277,6 +301,7 @@ const BookParcel = () => {
 					</label>
 					<input
 						type="text"
+						defaultValue={price}
 						{...register("price")}
 						name="price"
 						placeholder="Price"
@@ -288,7 +313,7 @@ const BookParcel = () => {
 				<div className="mt-5 px-5 lg:w-3/12 bg-primary text-white hover:bg-[#AB916C] font-mercellus text-center py-3 text-base">
 					<input
 						type="submit"
-						value={loading ? "Booking..." : "Book Parcel"}
+						value={loading ? "Updating..." : "Update Parcel"}
 						disabled={loading}
 					/>
 				</div>
@@ -297,4 +322,4 @@ const BookParcel = () => {
 	);
 };
 
-export default BookParcel;
+export default UpdateParcel;

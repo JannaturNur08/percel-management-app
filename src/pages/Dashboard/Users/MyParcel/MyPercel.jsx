@@ -67,7 +67,7 @@ const MyPercel = () => {
 									
 									
 									<th>
-                                    <Link to={`/dashboard/updateParcel/${item._id}`}>
+                                    <Link to={`/dashboard/updateParcels/${item._id}`}>
                                             <button
                                                 className="btn btn-ghost btn-md bg-blue-500">
                                                 <FaEdit className="text-white 

@@ -18,6 +18,7 @@ import MyPercel from "../pages/Dashboard/Users/MyParcel/MyPercel";
 import MyProfilee from "../pages/Dashboard/Users/MyProfile/MyProfilee";
 import MyDelivary from "../pages/Dashboard/DeliveryMen/MyDelivery/MyDelivary";
 import MyRevieews from "../pages/Dashboard/DeliveryMen/MyReviews/MyRevieews";
+import UpdateParcel from "../pages/Dashboard/Users/UpdateParcel/UpdateParcel";
 
 export const router = createBrowserRouter([
 	{
@@ -57,6 +58,14 @@ export const router = createBrowserRouter([
 			{
 				path: "myParcel",
 				element: <MyPercel></MyPercel>,
+			},
+			{
+				path: "updateParcels/:id",
+				element: <UpdateParcel></UpdateParcel>,
+				loader: ({ params }) =>
+					fetch(
+						`http://localhost:5000/parcels/${params.id}`
+					),
 			},
 			{
 				path: "myProfile",
