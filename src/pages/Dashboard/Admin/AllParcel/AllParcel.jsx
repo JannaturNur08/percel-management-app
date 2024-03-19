@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useParcels from "../../../../hooks/useParcels";
 import useUsers from "../../../../hooks/useUsers";
-import Modal from "./Modal";
+
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import moment from "moment/moment";
 
