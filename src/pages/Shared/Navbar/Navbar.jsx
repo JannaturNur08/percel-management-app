@@ -65,7 +65,7 @@ const Navbar = () => {
 	);
 	return (
 		<div>
-			<div className="navbar  bg-[#002B44]   text-white ">
+			<div className="navbar  bg-blue-300   text-white ">
 				<div className="navbar-start">
 					<div className="dropdown">
 						<label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -91,12 +91,12 @@ const Navbar = () => {
 					</div>
 					<div className="lg:flex items-center hidden relative">
 						<img
-							src="https://i.ibb.co/54bvJxy/logo.png"
+							src="https://i.ibb.co/SVqytBy/Fast-Parcel-transparent.png"
 							alt=""
-							className="w-20 h-20"
+							width={150}
 						/>
 						<a className="btn btn-ghost  text-xl lg:text-3xl absolute ml-12  mt-2">
-							atraTech
+							
 						</a>
 					</div>
 				</div>
