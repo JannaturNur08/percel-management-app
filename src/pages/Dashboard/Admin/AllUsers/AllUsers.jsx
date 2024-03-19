@@ -2,16 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { FaUsers } from "react-icons/fa";
+import useUsers from "../../../../hooks/useUsers";
 
 const AllUsers = () => {
 	const axiosSecure = useAxiosSecure();
-	const { data: users = [], refetch } = useQuery({
-		queryKey: ["users"],
-		queryFn: async () => {
-			const res = await axiosSecure.get("/users");
-			return res.data;
-		},
-	});
+
+	const [users, refetch] = useUsers();
 
 	const handleMakeDeliveryman = (user) => {
 		axiosSecure.patch(`/users/deliveryman/${user._id}`).then((res) => {
