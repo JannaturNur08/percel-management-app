@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import {  FaUsers } from "react-icons/fa";
-
+import { FaUsers } from "react-icons/fa";
 
 const AllUsers = () => {
-    const axiosSecure = useAxiosSecure();
+	const axiosSecure = useAxiosSecure();
 	const { data: users = [], refetch } = useQuery({
 		queryKey: ["users"],
 		queryFn: async () => {
@@ -22,7 +21,7 @@ const AllUsers = () => {
 				Swal.fire({
 					position: "top-end",
 					icon: "success",
-					title: `${user.name} is Moderator Now!.`,
+					title: `${user.name} is Deliveryman Now!.`,
 					showConfirmButton: false,
 					timer: 1500,
 				});
@@ -45,10 +44,9 @@ const AllUsers = () => {
 		});
 	};
 
-	
-    return (
-        <div>
-            <div className="flex justify-evenly my-4">
+	return (
+		<div>
+			<div className="flex justify-evenly my-4">
 				<h2 className="text-3xl">All Users</h2>
 				<h2 className="text-3xl">Total Users: {users.length} </h2>
 			</div>
@@ -62,7 +60,6 @@ const AllUsers = () => {
 							<th>Email</th>
 							<th>Make Deliveryman</th>
 							<th>Make Admin</th>
-							
 						</tr>
 					</thead>
 					<tbody>
@@ -71,7 +68,7 @@ const AllUsers = () => {
 								<th>{index + 1}</th>
 								<td>{user.name}</td>
 								<td>{user.email}</td>
-								<td>
+								<td className="text-blue-500 font-bold">
 									{user.role === "DeliveryMen" ? (
 										"DeliveryMen"
 									) : user.role === "Admin" ? (
@@ -88,7 +85,7 @@ const AllUsers = () => {
 										</button>
 									)}
 								</td>
-								<td>
+								<td className="text-red-500 font-bold">
 									{user.role === "Admin" ? (
 										"Admin"
 									) : (
@@ -104,14 +101,13 @@ const AllUsers = () => {
 										</button>
 									)}
 								</td>
-								
 							</tr>
 						))}
 					</tbody>
 				</table>
 			</div>
-        </div>
-    );
+		</div>
+	);
 };
 
 export default AllUsers;
